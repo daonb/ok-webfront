@@ -1,3 +1,7 @@
+/*
+ * bill application code,
+ * loaded and called just before page rendering
+ */
 module.exports = function(app){
   return {
     /**

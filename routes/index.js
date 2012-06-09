@@ -37,8 +37,14 @@ module.exports = function(app) {
         next();
       } else {
         rest.get(req.path, function(err, data){
-          if ( err === null )
+          if ( err === null ) {
+              try {
+                var ok_app = require('./../ok/'+controller)(app);
+                ok_app.update(action, id, data);
+              }
+              catch (e) {};
               res.render(controller + '/' + action + '.html', data)
+          }
           else {
             console.log('ERROR', err, req.path);
             res.end(null);
