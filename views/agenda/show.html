@@ -16,22 +16,17 @@
     <ul id="votes"></ul>
 </div>
 <script>
-    var require = {
-        baseUrl : '/js',
-        deps    : ['jquery'],
-        paths   : {
-            jquery      : 'jquery.min',
-            uijet_dir   : 'lib/uijet',
-            plugins     : 'lib',
-            eventbox    : 'lib/eventbox',
-            mustache    : 'mustache'
-        },
-        callback: function () {
+    function init() {
             require(['apps/agenda'
             ], function (app) {
                 app.init();
             });
         }
+
+    var module_require = {
+        paths   : {
+            uijet_dir   : 'lib/uijet',
+            eventbox    : 'lib/eventbox',
+        },
     };
 </script>
-<script src="/js/require.js"></script>
