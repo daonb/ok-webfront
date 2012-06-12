@@ -7,7 +7,8 @@ var express = require('express')
     , hulk = require('hulk-hogan')
     , cluster = require('cluster')
     , nconf = require('nconf')
-    , lingua = require('lingua');
+    , lingua = require('lingua')
+    , gzippo = require('gzippo');
 
 var app = module.exports = express.createServer();
 
@@ -25,8 +26,8 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-  
+  app.use(gzippo.staticGzip(__dirname + '/public'));
+
 });
 
 function init_dev() {
@@ -80,3 +81,4 @@ if (cluster.isMaster) {
   console.log("worker: %s", process.env.NODE_WORKER_ID);
   app.listen(nconf.get('port') || 3000);
 }
+
