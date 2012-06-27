@@ -12,7 +12,7 @@
 				<li class="vote1 passed"><a href="#vote1" data-toggle="tab">קריאה ראשונה</a></li>
 				<li class="committee2 pending"><a href="#committee2" data-toggle="tab">ישיבות ועדה</a></li>
 				<li class="vote2"><a href="#vote2" data-toggle="tab">קריאה שניה</a></li>
-				<li class="vote3"><a href="#vote3" data-toggle="tab">קריאה שלושה</a></li>
+				<li class="vote3"><a href="#vote3" data-toggle="tab">קריאה שלישית</a></li>
 				<li class="accepted"><a href="#accepted" data-toggle="tab">ההצעה הופכת לחוק</a></li>
 			</ul>
     	
@@ -372,3 +372,16 @@
 			    </ul>	
 			</div>
 		</aside>
+
+<script>
+	function init() {
+	// add tooltips to stage buttons on the right
+		// use link title as tooltip title
+		$("#stage-buttons").children().each(function(i) {
+			$(this).attr("title",$(this).text())
+			$(this).tooltip({placement:"right"})
+		});
+	} 
+
+    var module_require = { deps: ['jquery','tooltip'] }
+</script>
