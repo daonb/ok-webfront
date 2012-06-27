@@ -12,7 +12,7 @@ Quick Start
 
 Fork the repo: ``ok-webfront.git`` by using the *Fork* button on github.
 The only external dependecy is node.js so first get it for your platform
-from the `download page`_ and then::
+from the `packages page`_ and then::
 
     $ git clone git@github.com:`your_username`/ok-webfront.git
     $ cd ok-webfront
@@ -22,7 +22,7 @@ from the `download page`_ and then::
 and point your browser at http://localhost:3000.
 
 
-.. _download page: http://nodejs.org/#download
+.. _download page: http://nodejs.org/dist/v0.6.19/
 
 Contributing
 ------------
