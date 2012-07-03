@@ -15,8 +15,12 @@ var app = module.exports = express.createServer();
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
+	if (express.version[0] == '3')
+		app.engine( 'html', hulk.__express)
+	else
+		app.register('.html', hulk);
+
   app.set('view engine', 'html');
-  app.register('.html', hulk);
   app.set('view options',{layout:true});
   app.use(lingua(app, {
     defaultLocale : 'he',
