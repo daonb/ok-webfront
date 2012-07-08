@@ -21,8 +21,7 @@ from the `download page`_ and then::
 
 and point your browser at http://localhost:3000.
 
-
-.. _download page: http://nodejs.org/dist/v0.6.19/
+.. _download page: http://nodejs.org/#download
 
 Contributing
 ------------
