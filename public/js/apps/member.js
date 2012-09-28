@@ -49,16 +49,6 @@ define([
                 $(".score").tooltip();
             })
          },
-        bills : function (uri) {
-            $.get(uri, function (data) {
-                var template = $("#bill-template").html();
-                $("#bills").html(Mustache.render(template, data));
-                $('#bills-tab>table').dataTable({
-                      "oLanguage": { "sUrl": "txt/dataTables.txt"},
-                      "iDisplayLength": 10
-                      });
-                })
-         }
     };
     $('#member-nav').addClass('active');
     return app;
