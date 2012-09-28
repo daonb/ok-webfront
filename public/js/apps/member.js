@@ -23,7 +23,10 @@ define([
             });
             $.fn.dataTableExt.afnFiltering.push(
                   function( oSettings, aData, iDataIndex ) {
-                    return (document.getElementById('all-switch').checked?true:aData[0]=="true");
+                    if (document.getElementById('all-switch').checked)
+                      return true
+                    else
+                      return aData[0]=="true";
             })
             $('#all-switch').click(function () {table.fnDraw(); });
         },
