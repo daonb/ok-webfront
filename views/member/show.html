@@ -35,21 +35,6 @@
     </ul>
    </div>
   <div class="span9">
-    <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="#agendas-tab" data-toggle="tab">דגלים</a>
-      </li>
-      <li>
-        <a href="#bills-tab" data-toggle="tab">חקיקה</a>
-      </li>
-      <li>
-        <a href="#committees-tab" data-toggle="tab">ועדות</a>
-      </li>
-      <li>
-        <a href="#stream-tab" data-toggle="tab">שטף</a>
-      </li>
-    </ul>
-    <div class="tab-content">
       <div id="agendas-tab" class="tab-pane active">
         <table class="table table-striped">
           <thead>
@@ -71,6 +56,7 @@
             </tr>
           </tbody>
         </table>
+        <!-- Next few lines are the template used to display the bars -->
         {{=<% %>=}}<script type="text/html" id="agenda-template">
           {{#agendas}}
           <tr>
@@ -89,37 +75,6 @@
           </tr>
           {{/agendas}}
         </script><%={{ }}=%>
-      </div>
-
-      <div id="bills-tab" class="tab-pane">
-        <h3>הצעות המחכות על שולחן הכנסת ({{bills_stats_proposed}})</h3>
-        <h3>הצעות המחכות לקריאה ראשונה ({{bills_stats_pre}})</h3>
-        <h3>הצעות המחכות לדיון בוועדה ({{bills_stats_first}})</h3>
-        <h3>הצעות שאושרו ({{bills_stats_first}})</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>שם</th>
-              <th>שלב</th>
-              <th>תאריך עדכון אחרון</th>
-            </tr>
-          </thead>
-          <tbody id="bills">
-            <tr>
-              <td colspan="2">טוען...</td>
-            </tr>
-          </tbody>
-        </table>
-        {{=<% %>=}}<script type="text/html" id="bill-template">
-          {{#objects}}
-            <tr>
-              <td><a href="{{absolute_url}}">{{title}}</a></td>
-              <td>{{stage}}</td>
-              <td>{{stage_date}}</td>
-            </tr>
-           {{/objects}}
-       </script><%={{ }}=%>
-      </div>
     </div>
   </div>
 </div>

@@ -4,10 +4,13 @@ module.exports = function(app) {
 
   return {
     /*
-     * GET home page.
+     * GET static page.
      */
     index: function(req, res){
       res.render('index', { title: 'Express' })
+    },
+    about: function(req, res){
+      res.render('about', { title: 'Express' })
     },
     /**
      * Route globbing function for GET requests.
@@ -39,11 +42,14 @@ module.exports = function(app) {
         rest.get(req.path, function(err, data){
           if ( err === null ) {
               try {
-                var ok_app = require('./../ok/'+controller)(app);
+                var ok_app = require('./../middle/'+controller)(app);
                 ok_app.update(action, id, data);
               }
               catch (e) {};
-              res.render(controller + '/' + action + '.html', data)
+              var template=(action==null)?controller + '.html':
+                                    controller + '/' + action + '.html', data;
+              res.render(template, data);
+
           }
           else {
             console.log('ERROR', err, req.path);

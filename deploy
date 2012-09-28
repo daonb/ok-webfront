@@ -1,2 +1,2 @@
 #bin/sh
-fab deploy:repo=[your fork's address] -H dev.oknesset.org:27628
+fab deploy:repo=[your fork's address] -H www.example.com

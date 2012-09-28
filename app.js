@@ -63,6 +63,7 @@ app.configure('production', function(){
 // Routes
 var routes = require('./routes')(app);
 
+app.get('/about', routes.about);
 app.get('/:controller/:action/:id', routes.get);
 app.get('/:controller/:id', routes.get);
 app.get('/:controller', routes.get);
