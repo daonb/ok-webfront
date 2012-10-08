@@ -1,16 +1,21 @@
 <div id="agenda" class="container-fluid" >
     {{=<% %>=}}<script type="text/html" id="agenda-template">
-    <p class="pull-left">
-         עוקבים: {{followers}}
-         <button class="btn">עקוב</button>
-    </p>
-    <ul class="nav pull-right">
-      {{#editors}}
-      <li title="{{username}}" class="user">
-        <a href="{{absolute_url}}"><img src="{{avatar}}"></a>
-      </li>
-      {{/editors}}
-    </ul>
+    <div class="row">
+      <p class="pull-left">
+           עוקבים: {{followers}}
+           <button class="btn">עקוב</button>
+      </p>
+      <p class="pull-right">
+        עורכים:
+        <ul class="nav nav-pills">
+          {{#editors}}
+          <li title="{{username}}" class="user">
+            <a href="{{absolute_url}}"><img src="{{avatar}}"></a>
+          </li>
+          {{/editors}}
+        </ul>
+      </p>
+    </div>
     <h1 style="text-align:center; padding:0.5em;">{{name}}</h1>
     <div class="score-bar">
        <div class="agenda-bar" >
@@ -18,7 +23,7 @@
             <div id="agenda-bar" style="height:50px;" class="bar all" title="טוח כל חברי הכנסת"></div>
             <ul id="members" class="nav">
               {{#members}}
-              <li id="agenda-score-{{id}}" class="score" title="{{name}}"
+              <li id="agenda-score-{{id}}" class="score" title="{{name}} - {{party}}"
               score="{{score}}" style="left: {{left}}%;"></li>
               {{/members}}
           </div>
