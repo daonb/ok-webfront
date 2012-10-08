@@ -82,35 +82,6 @@
         },
         callback: init,
     };
-    if (module_require) {
-	for (var field in module_require) {
-            if (field=='callback' || field=='baseUrl')
-		alert("Non-overridable field "+field+" overridden in module_require")
-            else if (field=='deps' || field=='paths') {
-		continue;
-	    }
-	    else {
-		require[field] = module_require[field];
-	    }
-	}
-	if (module_require.deps) {
-            for(var i=0; i<module_require.deps.length; i++) {
-		var dep = module_require.deps[i]
-		var found=false;
-		for (var j=0; (!found) && j<require.deps.length; j++) {
-		    if (dep==require.deps[j])
-			found = true;
-		}
-		if (!found) {
-		    require.deps.push(dep)
-		}
-	    }
-        }
-	if (module_require.paths) {
-	    for (var i in module_require.paths)
-		require.paths[i] = module_require.paths[i];
-	}
-    }
   </script>
   <script src="/js/lib/require.js"></script>
 
