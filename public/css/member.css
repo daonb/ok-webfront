@@ -1,5 +1,6 @@
-.table th {text-align: center;}
-.score-bar {width: 40%; vertical-align:middle; }
+th {text-align: center;}
+#agendas td { width: 40%; }
+.score-bar {vertical-align:middle; }
 .progress {margin-bottom:0; position:relative;}
 .score-bar div {display: block; }
 .score-bar .all {position:absolute; width: 0%;

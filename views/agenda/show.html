@@ -1,32 +1,40 @@
-<link rel="stylesheet" href="/css/uijet.css"/>
-<link rel="stylesheet" href="/css/agenda_show.css"/>
-<div id="agenda">
-    <ul id="members_head" class="agenda_grid_head">
-        <li>Member</li>
-        <li>Score</li>
+<div id="agenda" class="container-fluid" >
+    {{=<% %>=}}<script type="text/html" id="agenda-template">
+    <p class="pull-left">
+         עוקבים: {{followers}}
+         <button class="btn">עקוב</button>
+    </p>
+    <ul class="nav pull-right">
+      {{#editors}}
+      <li title="{{username}}" class="user">
+        <a href="{{absolute_url}}"><img src="{{avatar}}"></a>
+      </li>
+      {{/editors}}
     </ul>
-    <ul id="members" class="agenda_grid ">
-    {{#members}}
-        <li><a href="{{absolute_url}}">{{name}}</a> <strong>{{score}}</strong></li>
-    {{/members}}
-    </ul>
-    <ul id="parties_head" class="agenda_grid_head"></ul>
-    <ul id="parties"></ul>
-    <ul id="editors"></ul>
-    <ul id="votes"></ul>
+    <h1 style="text-align:center; padding:0.5em;">{{name}}</h1>
+    <div class="score-bar">
+       <div class="agenda-bar" >
+          <div class="progress" style="height:50px;">
+            <div id="agenda-bar" style="height:50px;" class="bar all" title="טוח כל חברי הכנסת"></div>
+            <ul id="members" class="nav">
+              {{#members}}
+              <li id="agenda-score-{{id}}" class="score" title="{{name}}"
+              score="{{score}}" style="left: {{left}}%;"></li>
+              {{/members}}
+          </div>
+       </div>
+    </div>
+    <p class="lead">{{description}}</p>
+
+
+    </script><%={{ }}=%>
 </div>
 <script>
     function init() {
             require(['apps/agenda'
             ], function (app) {
-                app.init();
+                app.show_agenda();
             });
-        }
+        };
 
-    var module_require = {
-        paths   : {
-            uijet_dir   : 'lib/uijet',
-            eventbox    : 'lib/eventbox',
-        },
-    };
 </script>
